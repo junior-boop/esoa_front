@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 import { RiArrowRightUpLine } from "./icons";
 
 interface Props {
@@ -14,7 +13,7 @@ const alt = Astro.props.alt || "Centre image";
 ---
 
 <a href='/' class='centre-card'>
-  <Image src={src} alt={alt} />
+  <img src={src} alt={alt} />
   <div class='centre-label bebas-neue-regular text-4xl'>
     {name}
     <RiArrowRightUpLine width='42' height='42' />
