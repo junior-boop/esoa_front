@@ -1,0 +1,380 @@
+---
+import Banniere from "./banniere.astro";
+import Centres from "./Centres.astro";
+import Container from "./Container.astro";
+import { EventsSection } from "./Events";
+import Hero from "./Hero.astro";
+import Navbar from "./Navbar.astro";
+import Quote from "./Quote.astro";
+import { Stats } from "./Events.tsx";
+
+import banniere_img from "../assets/image/banniere_2.png";
+// src/pages/index.astro
+// Football Academy - Home Page
+---
+
+<style>
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  :root {
+    --black: #0a0a0a;
+    --white: #ffffff;
+    --bg: #eef0f2;
+    --accent: #f0f0f0;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    text-align: center;
+    padding: 5rem 2rem 2rem;
+  }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 10vw, 8rem);
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    color: var(--black);
+  }
+
+  /* ─── PHOTO STRIP ─── */
+  .photo-strip {
+    display: flex;
+    gap: 0.75rem;
+    padding: 2.5rem 0 2.5rem;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .photo-strip-inner {
+    display: flex;
+    gap: 0.75rem;
+    padding: 0 2rem;
+    width: 100%;
+  }
+
+  .photo-card {
+    flex: 0 0 auto;
+    border-radius: 1.25rem;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .photo-card:nth-child(1) {
+    width: 7%;
+    min-width: 60px;
+  }
+  .photo-card:nth-child(2) {
+    width: 22%;
+    min-width: 160px;
+  }
+  .photo-card:nth-child(3) {
+    width: 22%;
+    min-width: 160px;
+  }
+  .photo-card:nth-child(4) {
+    width: 22%;
+    min-width: 160px;
+  }
+  .photo-card:nth-child(5) {
+    flex: 1;
+    min-width: 160px;
+  }
+
+  .photo-card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+
+  .photo-card:hover img {
+    transform: scale(1.04);
+  }
+
+  /* placeholder images via unsplash */
+
+  /* ─── QUOTE SECTION ─── */
+  .quote-section {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    padding: 4rem 2.5rem;
+    max-width: 700px;
+  }
+
+  .quote-text h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 800;
+    line-height: 1.15;
+    text-align: right;
+    text-transform: none;
+    margin-bottom: 1rem;
+  }
+
+  .quote-text p {
+    font-size: 0.8rem;
+    color: #555;
+    line-height: 1.6;
+    text-align: right;
+    max-width: 280px;
+    margin-left: auto;
+  }
+
+  .coach-photo {
+    flex: 0 0 160px;
+    width: 160px;
+    height: 160px;
+    border-radius: 1.25rem;
+    overflow: hidden;
+    background: #ccc;
+  }
+
+  .coach-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* ─── CENTRES SECTION (dark) ─── */
+  .centres-section {
+    background: var(--black);
+    color: var(--white);
+    padding: 3.5rem 2.5rem;
+  }
+
+  .centres-section h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 800;
+    max-width: 340px;
+    line-height: 1.15;
+    margin-bottom: 2rem;
+  }
+
+  .centres-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+  }
+
+  .centre-card {
+    position: relative;
+    border-radius: 1rem;
+    overflow: hidden;
+    aspect-ratio: 3/4;
+    cursor: pointer;
+  }
+
+  .centre-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+    filter: brightness(0.75);
+  }
+
+  .centre-card:hover img {
+    transform: scale(1.06);
+    filter: brightness(0.6);
+  }
+
+  .centre-label {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .centre-label .arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border: 1.5px solid rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    font-size: 0.6rem;
+  }
+
+  /* ─── EVENTS SECTION ─── */
+  .events-section {
+    padding: 5rem 2.5rem;
+  }
+
+  .events-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .events-header h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+
+  .events-header p {
+    font-size: 0.82rem;
+    color: #666;
+    max-width: 420px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .events-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 0.75rem;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .event-card {
+    background: #d8dadc;
+    border-radius: 1.25rem;
+    min-height: 200px;
+    transition: background 0.3s;
+  }
+
+  .event-card:first-child {
+    grid-row: 1 / 3;
+    min-height: 420px;
+  }
+
+  .event-card:hover {
+    background: #c8cacc;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--black);
+    color: var(--white);
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    opacity: 0.7;
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .hero h1 {
+    animation: fadeUp 0.7s ease both;
+  }
+  .photo-strip {
+    animation: fadeUp 0.7s 0.15s ease both;
+  }
+  .quote-section {
+    animation: fadeUp 0.7s 0.25s ease both;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    .photo-card:nth-child(1) {
+      display: none;
+    }
+    .centres-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .events-grid {
+      grid-template-columns: 1fr;
+    }
+    .event-card:first-child {
+      grid-row: auto;
+      min-height: 200px;
+    }
+    .quote-section {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .quote-text h2,
+    .quote-text p {
+      text-align: left;
+      margin-left: 0;
+    }
+    nav {
+      padding: 1rem 1.25rem;
+    }
+    .nav-left {
+      gap: 1rem;
+    }
+  }
+</style>
+<body>
+  <!-- NAV -->
+  <Navbar />
+
+  <!-- HERO -->
+
+  <!-- PHOTO STRIP -->
+  <Banniere />
+
+  <section class='bg-[#E3EDFA]'>
+    <Container>
+      <div class='h-134.25 flex items-center justify-center gap-16'>
+        <Stats title='+200'> enfants aujourd’hui en pro et semi-pro </Stats>
+        <Stats title='5ans'> expertise et de méthodologie </Stats>
+        <Stats title='45'> Nombre d'entraîneurs certifiés </Stats>
+      </div>
+    </Container>
+    <div class='w-full h-134.25 overflow-hidden flex items-center'>
+      <img
+        src={banniere_img.src}
+        alt='Banniere Image'
+        class='w-full h-full object-cover'
+      />
+    </div>
+  </section>
+
+  <!-- CENTRES -->
+  <Centres />
+
+  <!-- EVENTS -->
+  <section class='events-section'>
+    <div class='events-header'>
+      <h2>Nos évènements</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam condimentum
+        neque sapien, sit amet viverra urna maximus sit amet. Proin bibendum
+        risus nibh, eu fermentum lacus lobortis in.
+      </p>
+    </div>
+    <Container>
+      <EventsSection />
+    </Container>
+  </section>
+
+  <footer>© 2025 Football Academy — All rights reserved</footer>
+</body>

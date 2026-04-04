@@ -1,0 +1,36 @@
+---
+import Container from "./Container.astro";
+import about_hero from "../assets/image/about_hero.png";
+---
+
+<section>
+  <Container>
+    <div class='flex items-center h-[550px]'>
+      <div class='flex-1'>
+        <p class='uppercase inter text-xl text-[#F35E0E] mb-0'>Académie</p>
+        <h3 class='titre text-[64px] font-bold inter mb-8 uppercase'>
+          Notre histoire, <br />
+          notre mission
+        </h3>
+
+        <p class='inter text-2xl w-[80%]'>
+          accroche résumant l'identité de l'académie
+        </p>
+      </div>
+      <div class='flex-1 overflow-hidden rounded-3xl'>
+        <img
+          src={about_hero.src}
+          alt='About Hero Image'
+          class='w-full h-full object-cover'
+        />
+      </div>
+    </div>
+  </Container>
+</section>
+
+<style>
+  .titre {
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+</style>
