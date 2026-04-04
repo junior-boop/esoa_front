@@ -1,0 +1,84 @@
+---
+import CenterCard from "./CenterCard.astro";
+import Container from "./Container.astro";
+import { RiArrowRightUpLine } from "./icons";
+
+import ville_1 from "../assets/image/ville_1.png";
+import ville_2 from "../assets/image/ville_2.png";
+import ville_3 from "../assets/image/ville_3.png";
+import ville_4 from "../assets/image/ville_4.png";
+---
+
+<section class='bg-black text-white pt-12 pb-24 px-6'>
+  <Container>
+    <h2 class='text-6xl w-[70%] font-bold py-14'>
+      Découvrez nos centres et leurs activités
+    </h2>
+    <div class='centres-grid'>
+      <CenterCard name='Brussels' src={ville_1} />
+      <CenterCard name='Ninove' src={ville_2} />
+      <CenterCard name='Anderlecht' src={ville_3} />
+      <CenterCard name='Cameroun' src={ville_4} />
+    </div>
+  </Container>
+</section>
+
+<style>
+  .centres-section {
+    background: var(--black);
+    color: var(--white);
+    padding: 3.5rem 2.5rem;
+  }
+
+  .centres-section h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 800;
+    max-width: 340px;
+    line-height: 1.15;
+    margin-bottom: 2rem;
+  }
+
+  .centres-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+  }
+
+  .centre-card {
+    position: relative;
+    border-radius: 1rem;
+    overflow: hidden;
+    height: 480px;
+    cursor: pointer;
+  }
+
+  .centre-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+    filter: brightness(0.75);
+  }
+
+  .centre-card:hover img {
+    transform: scale(1.06);
+    filter: brightness(0.6);
+  }
+
+  .centre-label {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+</style>

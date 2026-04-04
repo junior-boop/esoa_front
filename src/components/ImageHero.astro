@@ -1,0 +1,17 @@
+---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+
+interface Props {
+  src: string;
+  alt?: string;
+}
+
+const src = Astro.props.src as ImageMetadata[src];
+const alt = Astro.props.alt || "Image";
+---
+
+<div
+  class='w-112.5 h-150 overflow-hidden rounded-3xl flex items-center justify-center'>
+  <Image src={src} alt={alt} />
+</div>

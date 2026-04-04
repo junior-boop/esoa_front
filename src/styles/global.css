@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+.bebas-neue-regular {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.inter {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.animation_hover img {
+    transform: scale(1);
+    transition: transform 0.5s ease;
+}
+
+.animation_hover:hover img {
+    transform: scale(1.05);
+}

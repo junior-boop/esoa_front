@@ -1,0 +1,41 @@
+---
+import ImageHero from "./ImageHero.astro";
+import rec_1 from "../assets/image/rec_1.png";
+import rec_2 from "../assets/image/rec_2.png";
+import rec_3 from "../assets/image/rec_3.png";
+import rec_4 from "../assets/image/rec_4.png";
+import rec_5 from "../assets/image/rec_5.png";
+import Container from "./Container.astro";
+---
+
+<section class='hero'>
+  <div class=''>
+    <Container>
+      <div class='h-[750px] flex items-center justify-center'>
+        <h1 class='hero-text text-center text-[112px] inter font-bold'>
+          <span>Developing</span><br />
+          <span>Tomorrow's</span><br />
+          <span>Champions</span>
+        </h1>
+      </div>
+    </Container>
+  </div>
+  <div class='flex justify-center w-[100%] overflow-hidden'>
+    <div class='w-[122.14%] flex gap-4'>
+      <ImageHero src={rec_1} alt='Young players training with hurdles' />
+      <ImageHero src={rec_2} alt='Young players training with hurdles' />
+      <ImageHero src={rec_3} alt='Young players training with hurdles' />
+      <ImageHero src={rec_4} alt='Young players training with hurdles' />
+      <ImageHero src={rec_5} alt='Young players training with hurdles' />
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-text {
+    line-height: 0.95;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    color: var(--black);
+  }
+</style>

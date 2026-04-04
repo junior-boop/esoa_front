@@ -1,0 +1,40 @@
+
+import image from '../assets/image/rec_1.png';
+
+export function EventsItemsLarge() {
+    return (
+        <div className="w-[458px] h-[514px] relative overflow-hidden rounded-3xl animation_hover">
+            <div className="w-full h-full absolute top-0 left-0">
+                <img src={image.src} alt="Events" className="w-full h-full object-cover" />
+            </div>
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-8">
+                <h1 className='text-3xl font-bold text-white w-[80%] mb-4'>Compétition des jeunes U20 </h1>
+                <p className='text-white'>Mardi 24 mars, 2026 <br />12h 30 - Limoge</p>
+            </div>
+        </div>
+    );
+}
+
+export function EventsItemsSmall() {
+    return (
+        <div className="w-[326px] h-[469px] animation_hover">
+            <div className='rounded-3xl overflow-hidden w-[326px] h-[328px]'>
+                <img src={image.src} alt="Events" className="w-full h-full object-cover" />
+            </div>
+            <div className='p-4'>
+                <h1 className='text-3xl font-extrabold text-black  mb-4 inter' style={{ lineHeight: 1 }}>Compétition des jeunes U20 </h1>
+                <p className='text-black inter'>Mardi 24 mars, 2026 <br />12h 30 - Limoge</p>
+            </div>
+        </div>
+    );
+}
+
+export function EventsSection() {
+    return (
+        <div className="flex items-top gap-[21px]">
+            <EventsItemsLarge />
+            <EventsItemsSmall />
+            <EventsItemsSmall />
+        </div>
+    )
+}
