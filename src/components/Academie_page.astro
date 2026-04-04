@@ -1,5 +1,5 @@
 ---
-import Banniere from "./banniere.astro";
+import Banniere from "./Banniere.astro";
 import Centres from "./Centres.astro";
 import Container from "./Container.astro";
 import { EventsSection } from "./Events";
@@ -8,7 +8,10 @@ import Navbar from "./Navbar.astro";
 import Quote from "./Quote.astro";
 import { Stats } from "./Events.tsx";
 
+import { Liste_element } from "./React_UI.tsx";
+
 import banniere_img from "../assets/image/banniere_2.png";
+import banniere_1 from "../assets/image/banniere_1.png";
 // src/pages/index.astro
 // Football Academy - Home Page
 ---
@@ -18,8 +21,10 @@ import banniere_img from "../assets/image/banniere_2.png";
   *::before,
   *::after {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  }
+
+  body {
+    background-color: #eff2f6;
   }
 
   :root {
@@ -359,21 +364,89 @@ import banniere_img from "../assets/image/banniere_2.png";
   </section>
 
   <!-- CENTRES -->
-  <Centres />
-
+  <section class='py-36 w-full'>
+    <Container>
+      <div class='flex items-start'>
+        <div class='flex-1'>
+          <h3 class='inter text-[48px] font-bold' style={{ lineHeight: 1 }}>
+            Notre parcours
+          </h3>
+          <p class='max-w-[420px] text-xl inter mt-4 font-semibold'>
+            De nos premiers entraînements à aujourd'hui, chaque étape a forgé
+            l'académie que nous sommes devenus.
+          </p>
+        </div>
+        <div class='flex flex-col flex-1 gap-8'>
+          <Liste_element title='2020'>
+            Nos entraîneurs sont tous diplômés UEFA et justifient d'une
+            expérience terrain significative. Chaque enfant est suivi par des
+            professionnels qui connaissent les exigences du football de haut
+            niveau et savent adapter leur approche à chaque profil.
+          </Liste_element>
+          <Liste_element title='2023'>
+            Notre programme de formation s'appuie sur une progression claire, de
+            l'initiation jusqu'aux catégories avancées. Chaque séance est conçue
+            pour développer à la fois les fondamentaux techniques, la vision du
+            jeu et l'intelligence tactique.
+          </Liste_element>
+          <Liste_element title='2024-2025'>
+            Ici, chaque joueur compte. Nous établissons un bilan personnalisé à
+            chaque début de saison et assurons un suivi régulier des progrès.
+            Les parents sont tenus informés de l'évolution de leur enfant tout
+            au long de l'année.
+          </Liste_element>
+          <Liste_element title='2025-2026'>
+            Nos centres disposent de terrains entretenus, de vestiaires adaptés
+            et d'équipements modernes. Nous offrons un environnement sûr et
+            stimulant où les jeunes joueurs peuvent s'épanouir et progresser
+            dans les meilleures conditions.
+          </Liste_element>
+        </div>
+      </div>
+    </Container>
+  </section>
+  <div class='relative'>
+    <div>
+      <img
+        src={banniere_1.src}
+        alt='Banniere Image'
+        class='w-full h-200 object-cover mt-16'
+      />
+    </div>
+    <div class='absolute top-0 w-full py-30'>
+      <Container>
+        <div class='flex lg:justify-end'>
+          <div class='lg:w-[50%]'>
+            <h3 class='bebas-neue-regular text-8xl font-bold mb-10'>
+              Former des champions, bâtir des hommes.
+            </h3>
+            <p class='inter text-xl'>
+              Notre académie ne forme pas seulement des footballeurs. Elle forge
+              des caractères. À travers la discipline du sport, nous
+              accompagnons chaque jeune dans la construction de sa confiance, de
+              sa persévérance et de ses ambitions — sur le terrain comme dans la
+              vie
+            </p>
+          </div>
+        </div>
+      </Container>
+    </div>
+  </div>
   <!-- EVENTS -->
   <section class='events-section'>
-    <div class='events-header'>
-      <h2>Nos évènements</h2>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam condimentum
-        neque sapien, sit amet viverra urna maximus sit amet. Proin bibendum
-        risus nibh, eu fermentum lacus lobortis in.
-      </p>
+    <div class='py-30'>
+      <div class='events-header'>
+        <h2>Nos évènements</h2>
+        <p class='pb-10'>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
+          condimentum neque sapien, sit amet viverra urna maximus sit amet.
+          Proin bibendum risus nibh, eu fermentum lacus lobortis in.
+        </p>
+      </div>
+      <Container>
+        <EventsSection />
+      </Container>
     </div>
-    <Container>
-      <EventsSection />
-    </Container>
   </section>
 
   <footer>© 2025 Football Academy — All rights reserved</footer>

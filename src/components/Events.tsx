@@ -41,7 +41,7 @@ export function EventsSection() {
 
 export function Stats({ children, title }: { children: React.ReactNode, title: string }) {
     return (
-        <div className='max-w-87.5'>
+        <div className='max-w-87.5 w-fit'>
             <h3 className='bebas-neue-regular text-[128px] uppercase  mb-2' style={{ lineHeight: 0.9 }}>{title}</h3>
             <div>
                 <span className='inter text-4xl font-bold'>{children}</span>
