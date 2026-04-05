@@ -1,0 +1,269 @@
+---
+import Container from "./Container.astro";
+import { EventsSection } from "./Events";
+import Navbar from "./Navbar.astro";
+import { Section, Slider } from "./React_UI.tsx";
+
+import rect_2 from "../assets/image/rec_2.png";
+import banniere_1 from "../assets/image/banniere_1.png";
+import banniere_2 from "../assets/image/image-import-18.jpg";
+import banniere_3 from "../assets/image/image-import-22.jpg";
+import banniere_4 from "../assets/image/image-import-25.jpg";
+
+const image_Slider = [
+  {
+    src: banniere_1.src,
+    alt: "Image 1",
+  },
+  {
+    src: banniere_2.src,
+    alt: "Image 2",
+  },
+  {
+    src: banniere_3.src,
+    alt: "Image 3",
+  },
+  {
+    src: banniere_4.src,
+    alt: "Image 4",
+  },
+];
+---
+
+<style>
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #eff2f6;
+  }
+
+  .titre {
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+
+  .desc {
+    @apply max-w-[50%];
+  }
+
+  /* Scroll Snap pour chaque Slider */
+  .slider-snap {
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+    min-height: auto;
+    align-items: center;
+  }
+
+  /* Désactiver le snap au début et à la fin */
+  .slider-snap.snap-disabled {
+    scroll-snap-align: none; /* ← none et pas start */
+    scroll-snap-stop: normal;
+  }
+
+  /* ─── EVENTS SECTION ─── */
+  .events-section {
+    padding: 5rem 2.5rem;
+  }
+
+  .events-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .events-header h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+
+  .events-header p {
+    font-size: 0.82rem;
+    color: #666;
+    max-width: 420px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .events-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 0.75rem;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .event-card {
+    background: #d8dadc;
+    border-radius: 1.25rem;
+    min-height: 200px;
+    transition: background 0.3s;
+  }
+
+  .event-card:first-child {
+    grid-row: 1 / 3;
+    min-height: 420px;
+  }
+
+  .event-card:hover {
+    background: #c8cacc;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--black);
+    color: var(--white);
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    opacity: 0.7;
+  }
+</style>
+<body>
+  <!-- NAV -->
+  <Navbar />
+
+  <!-- HERO -->
+  <div class='haut'>
+    <section>
+      <Container>
+        <div class='flex items-center h-[550px]'>
+          <div class='flex-1'>
+            <p
+              class='uppercase inter text-xl text-[#F35E0E] mb-0 font-semibold'>
+              Nos Centres
+            </p>
+            <h3 class='titre text-[64px] font-bold inter mb-8 uppercase'>
+              Là où tu es,<br />
+              l'excellence <span
+                class='inline-block px-4 py-4 bg-[#F35E0E] text-white'
+                >t'attend.</span
+              >
+            </h3>
+
+            <div class='desc'>
+              <p class='inter text-2xl font-semibold'>
+                Que tu sois en Belgique ou au Cameroun, un centre ESOA est prêt
+                à révéler ton potentiel — sportif et académique.
+              </p>
+            </div>
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    <section class='pb-32 pt-20'>
+      <Container>
+        <Section
+          title="Le talent n'a pas de frontières"
+          texte="Depuis plus de 5 ans, l'ESOA Académie s'est bâtie sur une conviction simple : le talent n'a pas de frontières. Née en Belgique, enracinée au Cameroun, notre académie accompagne les jeunes de tous âges dans une double quête — l'excellence sur le terrain et la réussite en classe."
+          imageSrc={rect_2.src}
+        />
+      </Container>
+    </section>
+  </div>
+
+  <!-- CENTRES -->
+
+  <section class='slider-snap snap-disabled'>
+    <Slider
+      title='Bruxelles'
+      texte="Depuis plus de 5 ans, l'ESOA Académie s'est bâtie sur une conviction simple : le talent n'a pas de frontières. Née en Belgique, enracinée au Cameroun, notre académie accompagne les jeunes de tous âges dans une double quête — l'excellence sur le terrain et la réussite en classe."
+      imageSrc={image_Slider}
+      client:load
+    />
+  </section>
+
+  <section class='slider-snap snap-disabled'>
+    <Slider
+      title='Bruxelles'
+      texte="Depuis plus de 5 ans, l'ESOA Académie s'est bâtie sur une conviction simple : le talent n'a pas de frontières. Née en Belgique, enracinée au Cameroun, notre académie accompagne les jeunes de tous âges dans une double quête — l'excellence sur le terrain et la réussite en classe."
+      imageSrc={image_Slider}
+      client:load
+    />
+  </section>
+
+  <section class='slider-snap snap-disabled'>
+    <Slider
+      title='Bruxelles'
+      texte="Depuis plus de 5 ans, l'ESOA Académie s'est bâtie sur une conviction simple : le talent n'a pas de frontières. Née en Belgique, enracinée au Cameroun, notre académie accompagne les jeunes de tous âges dans une double quête — l'excellence sur le terrain et la réussite en classe."
+      imageSrc={image_Slider}
+      client:load
+    />
+  </section>
+  <!-- EVENTS -->
+  <section class='events-section'>
+    <div class='py-30'>
+      <div class='events-header'>
+        <h2>Nos évènements</h2>
+        <p class='pb-10'>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
+          condimentum neque sapien, sit amet viverra urna maximus sit amet.
+          Proin bibendum risus nibh, eu fermentum lacus lobortis in.
+        </p>
+      </div>
+      <Container>
+        <EventsSection />
+      </Container>
+    </div>
+  </section>
+
+  <footer>© 2025 Football Academy — All rights reserved</footer>
+  <script>
+    const haut = document.querySelector(".haut");
+    const sliderSnaps = document.querySelectorAll(".slider-snap");
+
+    if (haut && sliderSnaps.length > 0) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          const ratio = entries[0].intersectionRatio;
+
+          // .haut visible à plus de 20% → snap désactivé
+          // .haut visible à moins de 20% → snap activé
+          const snapShouldBeActive = ratio < 0.3;
+
+          sliderSnaps.forEach((el) => {
+            el.classList.toggle("snap-disabled", !snapShouldBeActive);
+          });
+        },
+        {
+          threshold: Array.from({ length: 101 }, (_, i) => i / 100),
+        },
+      );
+
+      observer.observe(haut);
+    }
+
+    // --- Snap des sliders conditionné par la visibilité de .events-section ---
+    const eventsSection = document.querySelector(".events-section");
+    const lastSliderSnap = sliderSnaps[sliderSnaps.length - 1];
+
+    if (eventsSection && sliderSnaps.length > 0) {
+      const eventsObserver = new IntersectionObserver(
+        (entries) => {
+          const ratio = entries[0].intersectionRatio;
+          const eventsShouldDisableSnap = ratio > 0.3;
+
+          sliderSnaps.forEach((el) => {
+            el.classList.toggle("snap-disabled", eventsShouldDisableSnap);
+          });
+        },
+        { threshold: Array.from({ length: 101 }, (_, i) => i / 100) },
+      );
+
+      eventsObserver.observe(eventsSection);
+    }
+  </script>
+</body>
