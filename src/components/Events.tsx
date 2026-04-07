@@ -3,7 +3,7 @@ import image from '../assets/image/rec_1.png';
 
 export function EventsItemsLarge() {
     return (
-        <div className="w-[458px] h-[514px] relative overflow-hidden rounded-3xl animation_hover">
+        <div className="w-full lg:w-[458px] lg:h-[514px] relative overflow-hidden rounded-3xl animation_hover">
             <div className="w-full h-full absolute top-0 left-0">
                 <img src={image.src} alt="Events" className="w-full h-full object-cover" />
             </div>
@@ -17,7 +17,7 @@ export function EventsItemsLarge() {
 
 export function EventsItemsSmall() {
     return (
-        <div className="w-[326px] h-[469px] animation_hover">
+        <div className="w-full lg:w-[326px] lg:h-[469px] animation_hover">
             <div className='rounded-3xl overflow-hidden w-[326px] h-[328px]'>
                 <img src={image.src} alt="Events" className="w-full h-full object-cover" />
             </div>
@@ -31,7 +31,7 @@ export function EventsItemsSmall() {
 
 export function EventsSection() {
     return (
-        <div className="flex items-top gap-[21px]">
+        <div className="flex flex-col lg:flex-row items-top gap-[21px]">
             <EventsItemsLarge />
             <EventsItemsSmall />
             <EventsItemsSmall />

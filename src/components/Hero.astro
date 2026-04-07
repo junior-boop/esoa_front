@@ -11,8 +11,9 @@ import Container from "./Container.astro";
 <section class='hero'>
   <div class=''>
     <Container>
-      <div class='h-[750px] flex items-center justify-center'>
-        <h1 class='hero-text text-center text-[112px] inter font-bold'>
+      <div class='h-[450px] lg:h-[750px] flex items-center justify-center'>
+        <h1
+          class='hero-text text-center text-4xl lg:text-[112px] inter font-bold'>
           <span>Developing</span><br />
           <span>Tomorrow's</span><br />
           <span>Champions</span>
@@ -22,11 +23,31 @@ import Container from "./Container.astro";
   </div>
   <div class='flex justify-center w-[100%] overflow-hidden'>
     <div class='w-[122.14%] flex gap-4'>
-      <ImageHero src={rec_1.src} alt='Young players training with hurdles' />
-      <ImageHero src={rec_2.src} alt='Young players training with hurdles' />
-      <ImageHero src={rec_3.src} alt='Young players training with hurdles' />
-      <ImageHero src={rec_4.src} alt='Young players training with hurdles' />
-      <ImageHero src={rec_5.src} alt='Young players training with hurdles' />
+      <ImageHero
+        src={rec_1.src}
+        alt='Young players training with hurdles'
+        class='hidden'
+      />
+      <ImageHero
+        src={rec_2.src}
+        alt='Young players training with hurdles'
+        class='w-[20vw]'
+      />
+      <ImageHero
+        src={rec_3.src}
+        alt='Young players training with hurdles'
+        class='w-[50vw]'
+      />
+      <ImageHero
+        src={rec_4.src}
+        alt='Young players training with hurdles'
+        class='w-[20vw]'
+      />
+      <ImageHero
+        src={rec_5.src}
+        alt='Young players training with hurdles'
+        class='hidden'
+      />
     </div>
   </div>
 </section>
