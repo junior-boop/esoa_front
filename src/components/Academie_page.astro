@@ -12,6 +12,7 @@ import { Liste_element } from "./React_UI.tsx";
 
 import banniere_img from "../assets/image/banniere_2.png";
 import banniere_1 from "../assets/image/banniere_1.png";
+import banniere_2 from "../assets/image/image-import-11.jpg";
 // src/pages/index.astro
 // Football Academy - Home Page
 ---
@@ -348,7 +349,8 @@ import banniere_1 from "../assets/image/banniere_1.png";
 
   <section class='bg-[#E3EDFA]'>
     <Container>
-      <div class='h-134.25 flex items-center justify-center gap-16'>
+      <div
+        class='h-auto py-25 lg:py-0 lg:h-134.25 flex flex-col lg:flex-row items-center justify-center gap-16'>
         <Stats title='+200'> enfants aujourd’hui en pro et semi-pro </Stats>
         <Stats title='5ans'> expertise et de méthodologie </Stats>
         <Stats title='45'> Nombre d'entraîneurs certifiés </Stats>
@@ -364,10 +366,10 @@ import banniere_1 from "../assets/image/banniere_1.png";
   </section>
 
   <!-- CENTRES -->
-  <section class='py-36 w-full'>
+  <section class='py-36 w-full px-4 lg:px-0'>
     <Container>
-      <div class='flex items-start'>
-        <div class='flex-1'>
+      <div class='flex flex-col lg:flex-row items-start'>
+        <div class='flex-1 mb-20 lg:mb-0'>
           <h3 class='inter text-[48px] font-bold' style={{ lineHeight: 1 }}>
             Notre parcours
           </h3>
@@ -407,17 +409,21 @@ import banniere_1 from "../assets/image/banniere_1.png";
   </section>
   <div class='relative'>
     <div>
-      <img
-        src={banniere_1.src}
-        alt='Banniere Image'
-        class='w-full h-200 object-cover mt-16'
-      />
+      <picture>
+        <source media='(min-width:650px)' srcset={banniere_1.src} />
+        <source media='(max-width:465px)' srcset={banniere_2.src} />
+        <img
+          src={banniere_1.src}
+          alt='Banniere Image'
+          class='w-full h-200 object-cover mt-16'
+        />
+      </picture>
     </div>
-    <div class='absolute top-0 w-full py-30'>
+    <div class='absolute top-0 w-full py-15 lg:py-30 px-4 lg:px-0'>
       <Container>
         <div class='flex lg:justify-end'>
           <div class='lg:w-[50%]'>
-            <h3 class='bebas-neue-regular text-8xl font-bold mb-10'>
+            <h3 class='bebas-neue-regular text-5xl lg:text-8xl font-bold mb-10'>
               Former des champions, bâtir des hommes.
             </h3>
             <p class='inter text-xl'>
@@ -443,7 +449,7 @@ import banniere_1 from "../assets/image/banniere_1.png";
           Proin bibendum risus nibh, eu fermentum lacus lobortis in.
         </p>
       </div>
-      <Container>
+      <Container style={{ padding: 0 }}>
         <EventsSection />
       </Container>
     </div>
